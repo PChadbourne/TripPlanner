@@ -24,3 +24,15 @@ class test_Parse_File(unittest.TestCase):
         #len(tripPlanner.parseFile()) == 3 # Where 3 is the number of students (lines) in the expenses file
         self.assertTrue(len(tripPlanner.parseFile(self.file)) == 3, "parseFile did not parse the correct number of students")
         pass
+
+class test_Parse_File_Content(unittest.TestCase):
+    def setUp(self):
+        self.file = tripPlanner.readFile()
+        pass
+
+    def tearDown(self):
+        pass
+
+    def test_Parse_File_Content(self):
+        self.assertIsInstance(tripPlanner.parseFile(self.file)[0][0], float, "parseFile did not return a nested list of floats")
+        pass
