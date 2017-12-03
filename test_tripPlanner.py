@@ -5,8 +5,9 @@
 # Patrick Chadbourne, December 3rd, 2017
 
 import unittest
+import tripPlanner
 
-class DemoTestCase(unittest.TestCase):
+class test_Read_File(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -14,4 +15,5 @@ class DemoTestCase(unittest.TestCase):
         pass
 
     def test_Testing_Working(self):
+        self.assertIsInstance(tripPlanner.readFile(), str, "readFile did not return a string")
         pass

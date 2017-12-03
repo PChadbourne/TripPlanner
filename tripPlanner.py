@@ -24,6 +24,10 @@ import unittest
 import sys
 
 def main():
+    pass
+
+def setString():
+    return "Cow"
 
 def run_tests():
     loader = unittest.TestLoader()
@@ -31,6 +35,7 @@ def run_tests():
 
     runner = unittest.TextTestRunner()
     runner.run(suite)
+    pass
 
 
 if __name__ == '__main__':
