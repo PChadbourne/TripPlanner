@@ -20,7 +20,22 @@
 #
 # Patrick Chadbourne, December 3rd, 2017
 
+import unittest
+import sys
+
 def main():
 
+def run_tests():
+    loader = unittest.TestLoader()
+    suite = loader.discover('.')
+
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
+
+
 if __name__ == '__main__':
-    main()
+    if 'test' in sys.argv[1:]:
+        run_tests()
+        sys.exit(0)
+    else:
+        main()
