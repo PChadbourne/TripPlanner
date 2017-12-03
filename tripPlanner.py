@@ -31,7 +31,10 @@ def readFile():
     return f
 
 def parseFile(file):
-    pass
+    parsedFile = []
+    for line in file:
+        parsedFile.append(line.split(" "))
+    return parsedFile
 
 def run_tests():
     loader = unittest.TestLoader()
