@@ -9,7 +9,7 @@ import tripPlanner
 
 class test_Read_File(unittest.TestCase):
     def test_Read_File(self):
-        self.assertIsInstance(tripPlanner.readFile(), str, "readFile did not return a string")
+        self.assertIsInstance(tripPlanner.readFile(), file, "readFile did not return a file")
         pass
 
 class test_Parse_File(unittest.TestCase):

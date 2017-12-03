@@ -28,7 +28,10 @@ def main():
 
 def readFile():
     f = open('expenses', 'r')
-    return f.read()
+    return f
+
+def parseFile(file):
+    pass
 
 def run_tests():
     loader = unittest.TestLoader()
