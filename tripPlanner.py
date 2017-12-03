@@ -26,8 +26,9 @@ import sys
 def main():
     pass
 
-def setString():
-    return "Cow"
+def readFile():
+    f = open('expenses', 'r')
+    return f.read()
 
 def run_tests():
     loader = unittest.TestLoader()
