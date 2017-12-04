@@ -65,6 +65,9 @@ def calculateDifferences(averageExpense, studentExpenses):
         differences.append(round(averageExpense - student, 2))
     return differences
 
+def getName(index):
+    return studentNames[index]
+
 #INCOMPLETE
 def printTransactions(differences):
     for valueToGive in differences:
