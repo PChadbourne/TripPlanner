@@ -65,8 +65,20 @@ def calculateDifferences(averageExpense, studentExpenses):
         differences.append(round(averageExpense - student, 2))
     return differences
 
-def printTransactions():
-    pass
+#INCOMPLETE
+def printTransactions(differences):
+    for valueToGive in differences:
+        while valueToGive > 0.0:
+            for valueToReceive in differences:
+                if valueToReceive < 0.0 and abs(valueToReceive) >= valueToGive:
+                    valueToReceive = valueToReceive + valueToGive
+                    valueToGive = 0.0
+                    break
+                elif valueToReceive < 0.0 and abs(valueToReceive) < valueToGive:
+                    valueToGive = valueToGive + valueToReceive
+                    valueToReceive = 0.0
+                    continue
+    return
 
 def run_tests():
     loader = unittest.TestLoader()
