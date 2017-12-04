@@ -33,7 +33,11 @@ def readFile():
 def parseFile(file):
     parsedFile = []
     for line in file:
-        parsedFile.append(line.split(" "))
+        expensesAsStrings = line.rstrip().split(" ")
+        expensesAsFloats = []
+        for value in expensesAsStrings:
+            expensesAsFloats.append(float(value))
+        parsedFile.append(expensesAsFloats)
     return parsedFile
 
 def run_tests():
