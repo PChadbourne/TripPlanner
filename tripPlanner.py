@@ -32,7 +32,13 @@ studentNames = [
 ]
 
 def main():
-    pass
+    f = readFile()
+    individualExpenses = parseFile(f)
+    totalledExpenses = calculateTotalExpenses(individualExpenses)
+    averageExpense = calculateAverageExpense(totalledExpenses)
+    differencesInExpenditures = calculateDifferences(averageExpense, totalledExpenses)
+    printTransactions(differencesInExpenditures)
+    sys.exit(0)
 
 def readFile():
     f = open('expenses', 'r')
@@ -68,18 +74,25 @@ def calculateDifferences(averageExpense, studentExpenses):
 def getName(index):
     return studentNames[index]
 
-#INCOMPLETE
 def printTransactions(differences):
-    for valueToGive in differences:
-        while valueToGive > 0.0:
-            for valueToReceive in differences:
-                if valueToReceive < 0.0 and abs(valueToReceive) >= valueToGive:
-                    valueToReceive = valueToReceive + valueToGive
-                    valueToGive = 0.0
+    #Iterates through the list of differences with x as the index of the value being given
+    for x in range(len(differences)):
+        while differences[x] > 0.0:
+            giverName = getName(x)
+            for y in range(len(differences)):
+                #Iterates through the list of differences with y as the index of the value being received
+                receiverName = getName(y)
+                if differences[y] < 0.0 and abs(differences[y]) >= differences[x]:
+                    #The recipient needs more or equal money to how much the giver owes
+                    differences[y] = differences[y] + differences[x]
+                    print(giverName + " must give " + '${:,.2f}'.format(differences[x]) + " to " + receiverName)
+                    differences[x] = 0.0
                     break
-                elif valueToReceive < 0.0 and abs(valueToReceive) < valueToGive:
-                    valueToGive = valueToGive + valueToReceive
-                    valueToReceive = 0.0
+                elif differences[y] < 0.0 and abs(differences[y]) < differences[x]:
+                    #The recipient needs less money than the giver owes
+                    differences[x] = differences[x] + differences[y]
+                    print(giverName + " must give " + '${:,.2f}'.format(abs(differences[y])) + " to " + receiverName)
+                    differences[y] = 0.0
                     continue
     return
 
