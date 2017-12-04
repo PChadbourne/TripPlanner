@@ -43,14 +43,13 @@ def parseFile(file):
 def calculateTotalExpenses(individualExpenses):
     totalExpenses = []
     for student in individualExpenses:
-        sum = 0.0
-        for expense in student:
-            sum = sum + expense
-        totalExpenses.append(sum)
+        totalExpenses.append(sum(student))
     return totalExpenses
 
-def calculateAverageExpense():
-    pass
+def calculateAverageExpense(totalledExpenses):
+    total = sum(totalledExpenses) / len(totalledExpenses)
+    total = round(total, 2)
+    return total
 
 def calculateDifference():
     pass
