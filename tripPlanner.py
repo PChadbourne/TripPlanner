@@ -23,6 +23,14 @@
 import unittest
 import sys
 
+studentNames = [
+"Amy", "Brian", "Charlie", "David", "Emma",
+"Frank", "Gina", "Howard", "Isabelle", "Josh",
+"Karen", "Liam", "Mia", "Nathan", "Olivia",
+"Patrick", "Quinn", "Ryan", "Susan", "Tom",
+"Uma", "Victor", "Wanda", "Xavier", "Yara", "Zack"
+]
+
 def main():
     pass
 

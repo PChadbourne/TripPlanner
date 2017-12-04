@@ -37,9 +37,6 @@ class test_Calculate_Total_Expenses(unittest.TestCase):
         self.expenses = tripPlanner.parseFile(self.file)
         pass
 
-    def tearDown(self):
-        pass
-
     def test_Calculate_Total_Expenses(self):
         self.assertTrue(len(tripPlanner.calculateTotalExpenses(self.expenses)) == 3, "calculateTotalExpenses did not calculate for the correct number of students")
         self.assertIsInstance(tripPlanner.calculateTotalExpenses(self.expenses)[0], float, "calculateTotalExpenses did not return a list of floats")
@@ -50,9 +47,6 @@ class test_Calculate_Average_Expense(unittest.TestCase):
         self.file = tripPlanner.readFile()
         self.expenses = tripPlanner.parseFile(self.file)
         self.totalExpenses = tripPlanner.calculateTotalExpenses(self.expenses)
-        pass
-
-    def tearDown(self):
         pass
 
     def test_Calculate_Average_Expense(self):
@@ -66,9 +60,6 @@ class test_Calculate_Differences(unittest.TestCase):
         self.expenses = tripPlanner.parseFile(self.file)
         self.totalExpenses = tripPlanner.calculateTotalExpenses(self.expenses)
         self.averageExpense = tripPlanner.calculateAverageExpense(self.totalExpenses)
-        pass
-
-    def tearDown(self):
         pass
 
     def test_Calculate_Differences(self):
