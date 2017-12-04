@@ -1,6 +1,10 @@
 # TripPlanner
 Trip Planner python script for iTrellis programming challenge
 
+Domain: Trip Calculator
+Interface: Native GUI
+Language: Python
+
 # How To Run
 Run as you would any other python script. Open a commandline in the directory and enter "python tripPlanner.py"
 
