@@ -93,8 +93,10 @@ def getName(index):
 
 def printTransactions(differences):
     #Iterates through the list of differences with x as the index of the value being given
+    noTransactionsNeeded = True
     for x in range(len(differences)):
         while differences[x] > 0.0:
+            noTransactionsNeeded = False
             giverName = getName(x)
             for y in range(len(differences)):
                 #Iterates through the list of differences with y as the index of the value being received
@@ -112,6 +114,8 @@ def printTransactions(differences):
                     differences[y] = 0.0
                     continue
             break
+    if noTransactionsNeeded:
+        print("All student's expenses are equal.")
     return
 
 def run_tests():
@@ -121,7 +125,6 @@ def run_tests():
     runner = unittest.TextTestRunner()
     runner.run(suite)
     pass
-
 
 if __name__ == '__main__':
     if 'test' in sys.argv[1:]:
