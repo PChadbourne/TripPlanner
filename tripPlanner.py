@@ -31,6 +31,8 @@ studentNames = [
 "Uma", "Victor", "Wanda", "Xavier", "Yara", "Zack"
 ]
 
+filename = "expenses"
+
 def main():
     f = readFile()
     individualExpenses = parseFile(f)
@@ -41,7 +43,12 @@ def main():
     sys.exit(0)
 
 def readFile():
-    f = open('expenses', 'r')
+    try:
+        f = open(filename, 'r')
+    except IOError as err:
+        print("Invalid argument interpretted as nonexistant file")
+        print("Please remove the argument or fix the filename")
+        sys.exit(1)
     return f
 
 def parseFile(file):
@@ -94,6 +101,7 @@ def printTransactions(differences):
                     print(giverName + " must give " + '${:,.2f}'.format(abs(differences[y])) + " to " + receiverName)
                     differences[y] = 0.0
                     continue
+            break
     return
 
 def run_tests():
@@ -110,4 +118,6 @@ if __name__ == '__main__':
         run_tests()
         sys.exit(0)
     else:
+        if len(sys.argv) >= 1:
+            filename = sys.argv[1]
         main()
