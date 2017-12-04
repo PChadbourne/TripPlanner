@@ -40,8 +40,14 @@ def parseFile(file):
         parsedFile.append(expensesAsFloats)
     return parsedFile
 
-def calculateTotalExpenses(IndividualExpenses):
-    pass
+def calculateTotalExpenses(individualExpenses):
+    totalExpenses = []
+    for student in individualExpenses:
+        sum = 0.0
+        for expense in student:
+            sum = sum + expense
+        totalExpenses.append(sum)
+    return totalExpenses
 
 def calculateAverageExpense():
     pass
