@@ -67,3 +67,11 @@ class test_Calculate_Differences(unittest.TestCase):
         self.assertTrue(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55, "calculateDifferences did not calculate the expected value")
         self.assertTrue(len(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)) == 3, "calculateDifferences did not calculate the expected number of values")
         pass
+
+class test_Get_Name(unittest.TestCase):
+
+    def test_Get_Name(self):
+        #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
+        self.assertTrue(tripPlanner.getName(0) == "Amy", "getName did not return the expected value")
+        self.assertTrue(tripPlanner.getName(7) == "Howard", "getName did not return the expected value")
+        pass
