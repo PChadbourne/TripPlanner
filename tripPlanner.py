@@ -40,6 +40,18 @@ def parseFile(file):
         parsedFile.append(expensesAsFloats)
     return parsedFile
 
+def calculateTotalExpenses(IndividualExpenses):
+    pass
+
+def calculateAverageExpense():
+    pass
+
+def calculateDifference():
+    pass
+
+def printTransactions():
+    pass
+
 def run_tests():
     loader = unittest.TestLoader()
     suite = loader.discover('.')
