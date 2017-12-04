@@ -51,7 +51,7 @@ def calculateAverageExpense(totalledExpenses):
     total = round(total, 2)
     return total
 
-def calculateDifference():
+def calculateDifferences():
     pass
 
 def printTransactions():

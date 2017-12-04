@@ -59,3 +59,20 @@ class test_Calculate_Average_Expense(unittest.TestCase):
         #tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87 # Where 44.87 is the expected value for the given test file
         self.assertTrue(tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87, "calculateAverageExpense did not calculate the correct average")
         pass
+
+class test_Calculate_Differences(unittest.TestCase):
+    def setUp(self):
+        self.file = tripPlanner.readFile()
+        self.expenses = tripPlanner.parseFile(self.file)
+        self.totalExpenses = tripPlanner.calculateTotalExpenses(self.expenses)
+        self.averageExpense = tripPlanner.calculateAverageExpense(self.totalExpenses)
+        pass
+
+    def tearDown(self):
+        pass
+
+    def test_Calculate_Differences(self):
+        #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
+        self.assertTrue(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses) == 31.55, "calculateDifferences did not calculate the expected value")
+        self.assertTrue(len(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)) == 3, "calculateDifferences did not calculate the expected number of values")
+        pass
