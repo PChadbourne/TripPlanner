@@ -73,6 +73,6 @@ class test_Calculate_Differences(unittest.TestCase):
 
     def test_Calculate_Differences(self):
         #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
-        self.assertTrue(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses) == 31.55, "calculateDifferences did not calculate the expected value")
+        self.assertTrue(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55, "calculateDifferences did not calculate the expected value")
         self.assertTrue(len(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)) == 3, "calculateDifferences did not calculate the expected number of values")
         pass

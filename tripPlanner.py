@@ -51,8 +51,11 @@ def calculateAverageExpense(totalledExpenses):
     total = round(total, 2)
     return total
 
-def calculateDifferences():
-    pass
+def calculateDifferences(averageExpense, studentExpenses):
+    differences = []
+    for student in studentExpenses:
+        differences.append(round(averageExpense - student, 2))
+    return differences
 
 def printTransactions():
     pass
