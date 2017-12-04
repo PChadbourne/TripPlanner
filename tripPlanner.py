@@ -18,6 +18,10 @@
 # Running the program with the commandline argument
 # "test" will run the program's unit tests.
 #
+# Running the program with any other commandline
+# argument will try to find an expense file with
+# the given name in the top-level directory.
+#
 # Patrick Chadbourne, December 3rd, 2017
 
 import unittest
@@ -34,11 +38,17 @@ studentNames = [
 filename = "expenses"
 
 def main():
+    #Read the file containing the student's expenses
     f = readFile()
+    #Parse the file to break it into a nested list of floats for easy handling
     individualExpenses = parseFile(f)
+    #Total each student's expenses
     totalledExpenses = calculateTotalExpenses(individualExpenses)
+    #Calculate the average expenditure
     averageExpense = calculateAverageExpense(totalledExpenses)
+    #Calculate the difference between a student's spending and the average
     differencesInExpenditures = calculateDifferences(averageExpense, totalledExpenses)
+    #Iterate through the differences and print the required transactions to even out
     printTransactions(differencesInExpenditures)
     sys.exit(0)
 
