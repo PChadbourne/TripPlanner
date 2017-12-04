@@ -7,12 +7,18 @@
 import unittest
 import tripPlanner
 
-class test_Read_File(unittest.TestCase):
+class test_Core(unittest.TestCase):
     def test_Read_File(self):
         self.assertIsInstance(tripPlanner.readFile(), file, "readFile did not return a file")
         pass
 
-class test_Parse_File(unittest.TestCase):
+    def test_Get_Name(self):
+        #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
+        self.assertTrue(tripPlanner.getName(0) == "Amy", "getName did not return the expected value")
+        self.assertTrue(tripPlanner.getName(7) == "Howard", "getName did not return the expected value")
+        pass
+
+class test_Parsing(unittest.TestCase):
     def setUp(self):
         self.file = tripPlanner.readFile()
         pass
@@ -22,39 +28,11 @@ class test_Parse_File(unittest.TestCase):
         self.assertTrue(len(tripPlanner.parseFile(self.file)) == 3, "parseFile did not parse the correct number of students")
         pass
 
-class test_Parse_File_Content(unittest.TestCase):
-    def setUp(self):
-        self.file = tripPlanner.readFile()
-        pass
-
     def test_Parse_File_Content(self):
         self.assertIsInstance(tripPlanner.parseFile(self.file)[0][0], float, "parseFile did not return a nested list of floats")
         pass
 
-class test_Calculate_Total_Expenses(unittest.TestCase):
-    def setUp(self):
-        self.file = tripPlanner.readFile()
-        self.expenses = tripPlanner.parseFile(self.file)
-        pass
-
-    def test_Calculate_Total_Expenses(self):
-        self.assertTrue(len(tripPlanner.calculateTotalExpenses(self.expenses)) == 3, "calculateTotalExpenses did not calculate for the correct number of students")
-        self.assertIsInstance(tripPlanner.calculateTotalExpenses(self.expenses)[0], float, "calculateTotalExpenses did not return a list of floats")
-        pass
-
-class test_Calculate_Average_Expense(unittest.TestCase):
-    def setUp(self):
-        self.file = tripPlanner.readFile()
-        self.expenses = tripPlanner.parseFile(self.file)
-        self.totalExpenses = tripPlanner.calculateTotalExpenses(self.expenses)
-        pass
-
-    def test_Calculate_Average_Expense(self):
-        #tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87 # Where 44.87 is the expected value for the given test file
-        self.assertTrue(tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87, "calculateAverageExpense did not calculate the correct average")
-        pass
-
-class test_Calculate_Differences(unittest.TestCase):
+class test_Calculations(unittest.TestCase):
     def setUp(self):
         self.file = tripPlanner.readFile()
         self.expenses = tripPlanner.parseFile(self.file)
@@ -62,16 +40,18 @@ class test_Calculate_Differences(unittest.TestCase):
         self.averageExpense = tripPlanner.calculateAverageExpense(self.totalExpenses)
         pass
 
+    def test_Calculate_Total_Expenses(self):
+        self.assertTrue(len(tripPlanner.calculateTotalExpenses(self.expenses)) == 3, "calculateTotalExpenses did not calculate for the correct number of students")
+        self.assertIsInstance(tripPlanner.calculateTotalExpenses(self.expenses)[0], float, "calculateTotalExpenses did not return a list of floats")
+        pass
+
+    def test_Calculate_Average_Expense(self):
+        #tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87 # Where 44.87 is the expected value for the given test file
+        self.assertTrue(tripPlanner.calculateAverageExpense(self.totalExpenses) == 44.87, "calculateAverageExpense did not calculate the correct average")
+        pass
+
     def test_Calculate_Differences(self):
         #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
         self.assertTrue(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55, "calculateDifferences did not calculate the expected value")
         self.assertTrue(len(tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)) == 3, "calculateDifferences did not calculate the expected number of values")
-        pass
-
-class test_Get_Name(unittest.TestCase):
-
-    def test_Get_Name(self):
-        #tripPlanner.calculateDifferences(self.averageExpense, self.totalExpenses)[2] == 31.55 # Where 31.55 is the expected value for the given test file and student
-        self.assertTrue(tripPlanner.getName(0) == "Amy", "getName did not return the expected value")
-        self.assertTrue(tripPlanner.getName(7) == "Howard", "getName did not return the expected value")
         pass
